@@ -68,7 +68,7 @@ export default function App() {
                         to={`/booking-page/${movie.imdbID}`}
                         className="btn btn-primary"
                       >
-                        Book Now
+                        Book Movie Now
                       </Link>
                     </CardBody>
                   </Card>
