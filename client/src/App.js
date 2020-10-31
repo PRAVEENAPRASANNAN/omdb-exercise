@@ -13,12 +13,11 @@ import {
 import SearchSection from "./components/SearchSection";
 
 export default function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   function onChangeSearchValue(event) {
     const searchValue = event.target.value;
-
     setSearchValue(searchValue);
   }
 

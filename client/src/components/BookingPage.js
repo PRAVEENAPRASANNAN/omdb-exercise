@@ -4,7 +4,7 @@ import { Container, Card } from "reactstrap";
 
 export default function BookingPage() {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const { movieId } = useParams();
   const history = useHistory();
 
