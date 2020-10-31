@@ -57,13 +57,13 @@ export default function App() {
                     <CardImg
                       top
                       width="100%"
-                      src={movie.Poster}
+                      src={movie.poster}
                       alt="Card image cap"
                     />
                     <CardBody className="bg-secondary">
-                      <CardTitle>{movie.Title}</CardTitle>
+                      <CardTitle>{movie.title}</CardTitle>
                       <CardText>
-                        {movie.Year}-{movie.Type}
+                        {movie.year}-{movie.type}
                       </CardText>
                       <Link
                         to={`/booking-page/${movie.imdbID}`}

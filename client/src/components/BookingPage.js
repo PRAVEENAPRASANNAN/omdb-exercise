@@ -37,8 +37,8 @@ export default function BookingPage() {
           <h3>Loading...</h3>
         ) : (
           <>
-            <h2 class="text-white">{data.Title}</h2>
-            <h4 class="text-white">Year: {data.Year}</h4>
+            <h2 class="text-white">{data.title}</h2>
+            <h4 class="text-white">Year: {data.year}</h4>
             <p>
               <img src={data.Poster} alt="img" className="img-thumbnail" />
             </p>
