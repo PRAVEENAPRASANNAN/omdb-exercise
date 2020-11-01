@@ -1,21 +1,79 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom'
+import { Input,Button,Container} from 'reactstrap'
+
 export default function AddMovies() {
+const [poster, setPoster] = useState('')
+const [title, setTitle] = useState('')
+const [type, setType] = useState('')
+const [year, setYear] = useState('')
 
-    useEffect(() => {
-    addMovies();
-    }, []);
+const history = useHistory();
 
-    async function addMovies() {
-        console.log("adding a movie")
-        const body = {poster:"https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",title:"Iron Man",type:"Movie",year:"2008"};
-        const result = await axios.post("http://localhost:5000/addMovies",body)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log("Error", error);
-            });
-    }
-    return (<h1>Adding a movie</h1>);
+function onClickAddMovies() {
+    console.log(title)
+    axios
+      .post(`http://localhost:5000/addMovies`, {
+        poster,  
+        title,
+        type,
+        year
+      })
+      .then(res => {
+        console.log(res)
+        console.log(res.data)
+      })
+    alert(`${title} Movie is Inserted`)
+  }
+
+  return (
+    <Container className="bg-secondary">
+    <section>
+    <h4 className="text-center text-white p-4">Add Movie Details</h4>
+      <p className="text-white">Movie Name</p>
+      <Input
+        placeholder='Movie Name'
+        onChange={e => {
+          setTitle(e.target.value)
+        }}
+      />
+      <br />
+      <p className="text-white">Type Of Movie</p>
+      <Input
+        placeholder='Enter The type'
+        onChange={e => {
+          setType(e.target.value)
+        }}
+      />
+      <br />
+      <p className="text-white">Released Year</p>
+      <Input
+        placeholder='Year'
+        onChange={e => {
+          setYear(e.target.value)
+        }}
+      />
+      <br />
+      <p className="text-white">Poster Link</p>
+        <Input
+        placeholder='Poster link'
+        onChange={e => {
+          setPoster(e.target.value)
+        }}
+      />
+      <br />
+      <Button className="btn mr-4 " color='success' onClick={onClickAddMovies}>
+        Insert Movie Details
+      </Button>
+      <Button
+        type='button'
+        className='btn btn-danger '
+        onClick={() => history.goBack()}
+      >
+        Go Back
+      </Button>
+    </section>
+    </Container>
+  )
 }

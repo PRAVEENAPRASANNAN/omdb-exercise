@@ -1,5 +1,6 @@
 main {
   margin-bottom: 50px;
+  background-color: rgb(160, 156, 156);
 }
 
 .footer {
@@ -13,5 +14,5 @@ main {
 .container {
   display: flex;
   flex-direction: column;
-  height: 300vh;
+  height: 150vh;
 }

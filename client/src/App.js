@@ -59,7 +59,7 @@ export default function App() {
                       src={movie.poster}
                       alt="Card image cap"
                     />
-                    <CardBody className="bg-secondary">
+                    <CardBody className="bg-light">
                       <CardTitle>{movie.title}</CardTitle>
                       <CardText>
                         {movie.year}-{movie.type}
