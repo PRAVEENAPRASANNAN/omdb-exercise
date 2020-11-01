@@ -2,9 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Switch, Route, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+
 import App from "./App";
+import AddMovies from "./components/AddMovies";
 import BookingPage from "./components/BookingPage";
 import Header from "./components/Header";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.css";
 
@@ -17,6 +20,9 @@ ReactDOM.render(
       <Header />
       <main>
         <Switch>
+        <Route path="/add-movie">
+            <AddMovies />
+          </Route>
           <Route path="/booking-page/:movieId">
             <BookingPage />
           </Route>

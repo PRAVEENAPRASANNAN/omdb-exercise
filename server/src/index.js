@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const routes = require('./routes');
 
@@ -17,6 +18,7 @@ db.on('error', err => {
 
 db.once('open', async () => {
     app.use(cors());
+    app.use(bodyParser.json());
     app.use('/',routes());
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`);
